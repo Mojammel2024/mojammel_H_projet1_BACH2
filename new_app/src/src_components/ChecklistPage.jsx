@@ -69,19 +69,21 @@ const ChecklistPage = () => {
       </Main>
       <Footer>
         <FooterContainer>
-          <FooterLogo src="logo.jpg" alt="Logo" />
+          <FooterLogo>
+            <img src="logo.jpg" alt="Logo" />
+          </FooterLogo>
           <FooterSections>
             <FooterSection>
               <h4>Support</h4>
-              <p>Link to a page or section that offers a FAQ or help center</p>
+              <p>Link to a page or section that <br /> offers a FAQ or help center</p>
             </FooterSection>
             <FooterSection>
               <h4>Contact</h4>
-              <p>Redirects to a page or section with contact information</p>
+              <p>Redirects to a page or section with <br /> a contact form or information to <br /> contact the app team.</p>
             </FooterSection>
             <FooterSection>
               <h4>Terms of Use</h4>
-              <p>Link to the privacy policy explaining how user data is protected</p>
+              <p>Link to the privacy policy, explaining <br /> how user data is protected.</p>
             </FooterSection>
           </FooterSections>
         </FooterContainer>
@@ -98,7 +100,7 @@ export default ChecklistPage;
 
 // Styled Components
 const Container = styled.div`
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 `;
@@ -199,6 +201,7 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 
   &.edit {
     background-color: #26547c;
@@ -215,6 +218,7 @@ const MoreChecklistButton = styled.button`
   margin-left: 42%;
   margin-top: -50px;
   background-color: #d9d9d9;
+  font-family: 'Roboto', sans-serif;
 
   @media (max-width: 768px) {
     margin-left: 0;
@@ -231,6 +235,7 @@ const NewButton = styled.button`
   font-size: 25px;
   border-radius: 40px;
   margin-left: 42%;
+  font-family: 'Roboto', sans-serif;
 
   a {
     text-decoration: none;
@@ -246,11 +251,11 @@ const NewButton = styled.button`
 
 const Footer = styled.footer`
   background-color: #000;
-  color: #fff;
+  color: white;
   padding: 30px 50px;
 
   @media (max-width: 768px) {
-    padding: 20px;
+    padding: 20px 30px;
   }
 `;
 
@@ -261,32 +266,37 @@ const FooterContainer = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
   }
 `;
 
-const FooterLogo = styled.img`
-  width: 200px;
-  height: 165px;
+const FooterLogo = styled.div`
+  img {
+    width: 200px;
+    height: 165px;
 
-  @media (max-width: 768px) {
-    width: 150px;
-    height: 125px;
+    @media (max-width: 768px) {
+      width: 150px;
+      height: 120px;
+    }
   }
 `;
 
 const FooterSections = styled.div`
+  flex: 3;
   display: flex;
   justify-content: space-evenly;
+  text-align: left;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    margin-top: 20px;
+    gap: 15px;
   }
 `;
 
 const FooterSection = styled.div`
   margin: 0 20px;
+  margin-top: -40px;
 
   h4 {
     font-size: 20px;
@@ -297,11 +307,19 @@ const FooterSection = styled.div`
     font-size: 14px;
     line-height: 1.4;
   }
+
+  @media (max-width: 768px) {
+    margin: 10px 0;
+  }
 `;
 
 const FooterBottom = styled.div`
   text-align: center;
   margin-top: 30px;
   font-size: 14px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 

@@ -21,13 +21,13 @@ const TaskDetailsPage = () => {
           <button onClick={handleBack}>Back</button>
         </BackButton>
 
-        <TitleContainer>
-          <h1>Checklist Title</h1>
-        </TitleContainer>
-
         <StatusContainer>
           <span>In Progress</span>
         </StatusContainer>
+        
+        <TitleContainer>
+          <h1>Checklist Title</h1>
+        </TitleContainer>
 
         <ChecklistSection>
           <Card>
@@ -48,19 +48,21 @@ const TaskDetailsPage = () => {
 
       <Footer>
         <FooterContainer>
-          <FooterLogo src="logo.jpg" alt="Logo" />
+          <FooterLogo>
+            <img src="logo.jpg" alt="Logo" />
+          </FooterLogo>
           <FooterSections>
             <FooterSection>
               <h4>Support</h4>
-              <p>Link to a page or section that offers a FAQ or help center</p>
+              <p>Link to a page or section that <br /> offers a FAQ or help center</p>
             </FooterSection>
             <FooterSection>
               <h4>Contact</h4>
-              <p>Redirects to a page or section with contact information</p>
+              <p>Redirects to a page or section with <br /> a contact form or information to <br /> contact the app team.</p>
             </FooterSection>
             <FooterSection>
               <h4>Terms of Use</h4>
-              <p>Link to the privacy policy explaining how user data is protected</p>
+              <p>Link to the privacy policy, explaining <br /> how user data is protected.</p>
             </FooterSection>
           </FooterSections>
         </FooterContainer>
@@ -77,7 +79,7 @@ export default TaskDetailsPage;
 
 // Styled Components
 const Container = styled.div`
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 `;
@@ -100,11 +102,13 @@ const BackButton = styled.div`
   margin-bottom: 20px;
   button {
     padding: 10px 20px;
-    background-color: #26547c;
+    background-color: #451B1B;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    margin-left: -95%;
   }
 `;
 
@@ -122,8 +126,13 @@ const TitleContainer = styled.div`
 const StatusContainer = styled.div`
   margin-top: 10px;
   font-size: 18px;
-  color: #ffd166;
-`;
+  color: #000000;
+  background-color: #ffd166;
+  margin-left: 71%;
+  margin-right: 20%;
+  padding: 3px;
+
+  `;
 
 const ChecklistSection = styled.section`
   display: flex;
@@ -160,6 +169,7 @@ const StatusButton = styled.button`
   border-radius: 5px;
   margin-top: 10px;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
   &.done {
     background-color: #28a745;
     color: #fff;
@@ -173,39 +183,71 @@ const StatusButton = styled.button`
 const MoreTasksButton = styled.button`
   margin-top: 20px;
   background-color: #d9d9d9;
+  font-family: 'Roboto', sans-serif;
 `;
+
 
 const Footer = styled.footer`
   background-color: #000;
-  color: #fff;
+  color: white;
   padding: 30px 50px;
+
+  @media (max-width: 768px) {
+    padding: 20px 30px;
+  }
 `;
 
 const FooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
-const FooterLogo = styled.img`
-  width: 200px;
-  height: 165px;
+const FooterLogo = styled.div`
+  img {
+    width: 200px;
+    height: 165px;
+
+    @media (max-width: 768px) {
+      width: 150px;
+      height: 120px;
+    }
+  }
 `;
 
 const FooterSections = styled.div`
+  flex: 3;
   display: flex;
   justify-content: space-evenly;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+  }
 `;
 
 const FooterSection = styled.div`
   margin: 0 20px;
+  margin-top: -40px;
+
   h4 {
     font-size: 20px;
     margin-bottom: 30px;
   }
+
   p {
     font-size: 14px;
     line-height: 1.4;
+  }
+
+  @media (max-width: 768px) {
+    margin: 10px 0;
   }
 `;
 
@@ -213,4 +255,8 @@ const FooterBottom = styled.div`
   text-align: center;
   margin-top: 30px;
   font-size: 14px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;

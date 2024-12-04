@@ -36,7 +36,7 @@ const FormPage = () => {
       </Header>
 
       <BackButton>
-        <Button onClick={() => navigate('/')}>Back</Button>
+        <Button onClick={() => navigate('/')} className='buttonBack'>Back</Button>
       </BackButton>
 
       <TitleContainer>
@@ -57,7 +57,7 @@ const FormPage = () => {
         </CreateTaskButton>
 
         {tasks.map((task, index) => (
-          <Card key={task.id}>
+          <Card className='cardtask' key={task.id}>
             <h2>Task title</h2>
             <textarea
               value={task.description}
@@ -113,6 +113,7 @@ const FormPage = () => {
 const Main = styled.main`
   padding: 0px;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 
   @media (max-width: 768px) {
     padding: 20px;
@@ -138,6 +139,11 @@ const BackButton = styled.div`
     margin-left: 0;
     margin-bottom: 10px;
   }
+  .buttonBack{
+    background-color: #451B1B;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
 `;
 
 const Button = styled.button`
@@ -147,6 +153,7 @@ const Button = styled.button`
   cursor: pointer;
   background-color: #FFD166;
   color: white;
+  font-family: 'Roboto', sans-serif;
 `;
 
 const TitleContainer = styled.div`
@@ -189,7 +196,7 @@ const Card = styled.div`
   width: 50%;
   text-align: left;
   box-shadow: 7px 9px 10px 2px rgba(0, 0, 0, 0.26);
-
+  
   textarea {
     width: 95%;
     height: 50px;
@@ -233,6 +240,7 @@ const SaveButton = styled.button`
   font-size: 25px;
   border-radius: 40px;
   margin-left: 42%;
+  font-family: 'Roboto', sans-serif;
   
   @media (max-width: 768px) {
     margin-left: 0;
