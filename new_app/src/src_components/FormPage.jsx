@@ -130,6 +130,7 @@ const Logo = styled.div`
     height: 50px;
     display: flex;
     margin: 0 auto;
+    margin-right: 98%;
   }
 `;
 
@@ -196,7 +197,7 @@ const Card = styled.div`
   width: 50%;
   text-align: left;
   box-shadow: 7px 9px 10px 2px rgba(0, 0, 0, 0.26);
-  
+
   textarea {
     width: 95%;
     height: 50px;

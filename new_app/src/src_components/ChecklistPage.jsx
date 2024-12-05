@@ -183,7 +183,7 @@ const Status = styled.span`
   }
 
   &.finished {
-    background-color: #28a745;
+    background-color: #000000;
     color: #fff;
   }
 `;
