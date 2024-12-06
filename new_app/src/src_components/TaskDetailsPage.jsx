@@ -20,7 +20,7 @@ import {
   FooterSections,
   FooterSection,
   FooterBottom
-} from './StylesCompo/TaskDetailsPage.styles'; // Import des styles
+} from './TaskDetailsPage.styles'; // Import des styles
 
 const TaskDetailsPage = () => {
   const navigate = useNavigate();
