@@ -1,4 +1,3 @@
-// FormPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -19,74 +18,85 @@ import {
   FooterSections,
   FooterSection,
   FooterBottom
-} from './StylesCompo/FormPage.styles'; // Import des styles
+} from './StylesCompo/FormPage.styles'; // Styled components are a clean way to organize styles.
 
 const FormPage = () => {
-  const [tasks, setTasks] = useState([]);
-  const navigate = useNavigate();
+  const [tasks, setTasks] = useState([]); // State to manage the list of tasks.
+  const navigate = useNavigate(); // Hook for navigation between pages.
 
+  // Function to add a new task to the list.
   const addTask = () => {
     setTasks([...tasks, { id: tasks.length + 1, description: '' }]);
   };
 
+  // Function to delete a task by its ID.
   const deleteTask = (id) => {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
+  // Function to save the checklist and tasks in localStorage.
   const saveChecklist = () => {
-    const checklistDescription = document.getElementById('checklist-description').value;
-    const taskDescriptions = tasks.map(task => task.description);
+    const checklistDescription = document.getElementById('checklist-description').value; // Fetch checklist description.
+    const taskDescriptions = tasks.map(task => task.description); // Map to extract task descriptions.
 
+    // Save checklist data in localStorage
     localStorage.setItem('checklist', JSON.stringify({
       checklistDescription,
       tasks: taskDescriptions,
     }));
 
-    navigate('/'); // Redirection vers la page d'accueil
+    navigate('/'); // Redirect to home page after saving.
   };
 
   return (
     <Main>
+      {/* Header section containing the logo */}
       <Header>
         <Logo>
-          <img src="logo.jpg" alt="Logo" />
+          <img src="logo.jpg" alt="Logo" /> 
         </Logo>
       </Header>
 
+      {/* Button to navigate back to the previous page */}
       <BackButton>
         <Button onClick={() => navigate('/')} className='buttonBack'>Back</Button>
       </BackButton>
-
+      
       <TitleContainer>
         <h1>Form</h1>
       </TitleContainer>
 
+      {/* Section to manage checklist details and tasks */}
       <Checklist>
+        {/* Card for entering the checklist title and description */}
         <Card>
           <h2>Checklist title</h2>
           <textarea
             id="checklist-description"
-            placeholder="Description of the Checklist"
+            placeholder="Description of the Checklist" // Placeholder for checklist description.
           />
         </Card>
 
+        {/* Button to create a new task */}
         <CreateTaskButton>
           <Button onClick={addTask}>+ Create a Task</Button>
         </CreateTaskButton>
 
+        {/* Render list of tasks dynamically */}
         {tasks.map((task, index) => (
           <Card className='cardtask' key={task.id}>
             <h2>Task title</h2>
             <textarea
-              value={task.description}
+              value={task.description} // Bind the task description to the state.
               onChange={(e) => {
-                const updatedTasks = [...tasks];
-                updatedTasks[index].description = e.target.value;
-                setTasks(updatedTasks);
+                const updatedTasks = [...tasks]; // Create a copy of tasks.
+                updatedTasks[index].description = e.target.value; // Update the specific task.
+                setTasks(updatedTasks); // Update state with the modified tasks.
               }}
-              placeholder="Task description"
+              placeholder="Task description" // Placeholder for task description.
             />
             <Actions>
+              {/* Button to delete a task */}
               <Button onClick={() => deleteTask(task.id)} className="delete">
                 Delete
               </Button>
@@ -95,13 +105,17 @@ const FormPage = () => {
         ))}
       </Checklist>
 
+      {/* Button to save the checklist */}
       <SaveButton onClick={saveChecklist}>Save</SaveButton>
 
+      {/* Footer section */}
       <Footer>
         <FooterContainer>
+          {/* Footer logo */}
           <FooterLogo>
             <img src="logo.jpg" alt="Logo" />
           </FooterLogo>
+          {/* Footer sections */}
           <FooterSections>
             <FooterSection>
               <h4>Support</h4>
