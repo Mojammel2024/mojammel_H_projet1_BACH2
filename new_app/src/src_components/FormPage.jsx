@@ -24,7 +24,7 @@ const FormPage = () => {
   const [tasks, setTasks] = useState([]); // State to manage the list of tasks.
   const navigate = useNavigate(); // Hook for navigation between pages.
 
-  // Function to add a new task to the list.
+  // Function to add a new task to the list..
   const addTask = () => {
     setTasks([...tasks, { id: tasks.length + 1, description: '' }]);
   };
